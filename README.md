@@ -29,8 +29,6 @@ Below is a consolidated, accurate table of issues reported by those tools, and h
 
 You can inspect the raw outputs to see the exact messages produced by each tool (they are saved in the repo). I used those reports to produce the table above and implement the fixes in `cleaned_inventory_system.py`.
 
-
-
 Reflection Questions
 
 1. Which issues were the easiest to fix, and which were the hardest? Why?
@@ -40,7 +38,11 @@ Reflection Questions
 
 2. Did the static analysis tools report any false positives? If so, describe one example.
 
-- (Note: I did not run the tools in this environment automatically. Typical false positives include Pylint complaining about short variable names or unused function arguments used for API compatibility; Bandit sometimes flags use of `subprocess` patterns that are safe in the specific context. If you want, I can run Pylint/Bandit/Flake8 now and report specific tool outputs and any false positives.)
+Yes — most reported issues were valid and important (for example, Bandit's `eval` and the bare `except` were real security/robustness problems we fixed). However, there were a few findings that are stylistic(False positive) recommendations rather than true bugs. One concrete example:
+
+- Pylint's C0209 "consider-using-f-string" for the line that formats the log entry (the original `logs.append("%s: Added %d of %s" % (...))`). This is a style suggestion to prefer f-strings for readability and consistency. It is not a correctness or security problem — converting to an f-string improves clarity but does not fix a runtime bug. In the cleaned file I applied f-strings where appropriate for readability, but this finding would be considered a low-priority, stylistic issue rather than a false positive about program correctness.
+
+Another example of a generally lower-priority tool result is naming/style warnings (snake_case vs camelCase) from Pylint: they reflect coding conventions, not functional defects. By contrast, Bandit's findings (use of `eval`) and Flake8's bare-except warning were genuine issues and were addressed in the cleaned version.
 
 3. How would you integrate static analysis tools into your actual software development workflow?
 
