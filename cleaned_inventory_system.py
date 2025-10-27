@@ -1,11 +1,4 @@
-"""Cleaned version of inventory_system.py for Lab 5 (Static Code Analysis).
 
-This file follows the lab instructions: it corrects multiple issues from the
-original `inventory_system.py` without introducing classes. It keeps a simple
-functional API, adds input validation, safer file I/O, explicit exception
-handling, and logging. It intentionally avoids `eval`, mutable default
-arguments, and bare excepts.
-"""
 from __future__ import annotations
 
 import json
