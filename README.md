@@ -5,7 +5,7 @@ This repository contains the original `inventory_system.py` (for analysis) and a
 Files
 
 - `inventory_system.py` — original file with issues (used for static analysis)
-- `cleaned_inventory_system.py` — cleaned functional implementation (deliverable)
+- `cleaned_inventory_system.py` — cleaned functional implementation
 
 Static analysis — actual tool runs
 
@@ -29,20 +29,7 @@ Below is a consolidated, accurate table of issues reported by those tools, and h
 
 You can inspect the raw outputs to see the exact messages produced by each tool (they are saved in the repo). I used those reports to produce the table above and implement the fixes in `cleaned_inventory_system.py`.
 
-What I changed in `cleaned_inventory_system.py`
 
-- Kept a functional (non-class) design as requested.
-- Replaced mutable default args, removed `eval`, and removed silent bare excepts.
-- Added type and value validation for item names and quantities.
-- Implemented safe file I/O via context managers and JSON validation.
-- Added logging to record operations and exceptions.
-
-Lab Steps & Deliverables (completed)
-
-1. Inspect `inventory_system.py` and identify issues — done.
-2. Fix at least four issues — the cleaned file fixes more than four issues (see table above).
-3. Document findings — the table above captures the findings and fixes.
-4. Reflection answers — below in this README.
 
 Reflection Questions
 
