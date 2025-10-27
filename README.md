@@ -78,4 +78,4 @@ bandit -r inventory_system.py > bandit_report.txt
 flake8 inventory_system.py > flake8_report.txt
 ```
 
-If you'd like, I can run these tools now in the workspace and iterate on any remaining findings — say the word and I'll run them and update the README with the tool outputs and any further fixes.
+or run the run_linters.py
